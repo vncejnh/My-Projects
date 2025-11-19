@@ -1,0 +1,331 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #fef7ed;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 80px;
+    background-color: #0f766e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0;
+    gap: 24px;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.sidebar-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: white;
+}
+
+.sidebar-icon {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-icon:hover {
+    background-color: #115e59;
+}
+
+.sidebar-icon.active {
+    background-color: #115e59;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fb923c;
+    margin-bottom: 24px;
+}
+
+.calendar-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.calendar-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.calendar-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-edit {
+    background: black;
+    color: white;
+}
+
+.btn-nav {
+    background: black;
+    color: white;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Calendar Grid Styles */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid #d1d5db;
+}
+
+.calendar-day-header {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+.calendar-day {
+    background: white;
+    min-height: 100px;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+    position: relative;
+}
+
+.day-number {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.urgent-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    background: #f87171;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.event-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+/* Task Input Styles */
+.task-input-section {
+    margin-top: 24px;
+}
+
+.task-input-label {
+    color: #9ca3af;
+    margin-bottom: 12px;
+}
+
+.task-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 2px solid #fb923c;
+    border-radius: 24px;
+    padding: 12px 16px;
+}
+
+.task-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 0 8px;
+}
+
+.task-input::placeholder {
+    color: #d1d5db;
+}
+
+.btn-submit {
+    background: none;
+    border: none;
+    color: #fb923c;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+.btn-submit:hover {
+    opacity: 0.7;
+}
+
+/* Tasks Sidebar Styles */
+.tasks-sidebar {
+    width: 384px;
+    background: #f9fafb;
+    border-left: 1px solid #e5e7eb;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.tasks-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+    background-color: #e5e7eb;
+    border-radius: 4px;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Task Card Styles */
+.task-card {
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+}
+
+.task-card.cyan {
+    background: #a5f3fc;
+}
+
+.task-card.teal {
+    background: #99f6e4;
+}
+
+.task-card.green {
+    background: #d9f99d;
+}
+
+.task-card.orange {
+    background: #fed7aa;
+}
+
+.task-card.purple {
+    background: #ddd6fe;
+}
+
+.task-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding-right: 32px;
+}
+
+.task-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+}
+
+.task-due {
+    font-size: 14px;
+}
+
+.task-details {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+}

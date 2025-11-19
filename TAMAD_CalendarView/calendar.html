@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Calendar</title>
+    <link rel="stylesheet" href="cal_styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">T</div>
+            <div class="sidebar-icons">
+                <div class="sidebar-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </div>
+                <div class="sidebar-icon active">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="page-title">Calendar</h1>
+            
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h2 class="calendar-title" id="calendarTitle">NOVEMBER, 2025</h2>
+                    <div class="calendar-controls">
+                        <button class="btn btn-edit">Edit</button>
+                        <button class="btn btn-nav" onclick="previousMonth()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="btn btn-nav" onclick="nextMonth()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Day headers -->
+                    <div class="calendar-day-header">SUN</div>
+                    <div class="calendar-day-header">MON</div>
+                    <div class="calendar-day-header">TUE</div>
+                    <div class="calendar-day-header">WED</div>
+                    <div class="calendar-day-header">THU</div>
+                    <div class="calendar-day-header">FRI</div>
+                    <div class="calendar-day-header">SAT</div>
+                    <!-- Days will be inserted here by JavaScript -->
+                </div>
+
+                <div class="task-input-section">
+                    <p class="task-input-label">Got something to plan? Just prompt and let us do it for you ...</p>
+                    <div class="task-input-wrapper">
+                        <input type="text" class="task-input" id="taskInput" placeholder="Type your plan or task here...." onkeypress="handleKeyPress(event)">
+                        <button class="btn-submit" onclick="addTask()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Sidebar -->
+        <div class="tasks-sidebar">
+            <div class="tasks-header">
+                <h2 class="tasks-title">Tasks and Events</h2>
+                <button class="toggle-btn" onclick="toggleTasks()">▲</button>
+            </div>
+            <div class="tasks-list" id="tasksList">
+                <!-- Tasks will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
